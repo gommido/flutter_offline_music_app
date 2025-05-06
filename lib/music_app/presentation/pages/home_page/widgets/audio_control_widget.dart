@@ -1,10 +1,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_offline_music_app/music_app/presentation/pages/home_page/widgets/audio_duration_widget.dart';
 import 'package:flutter_offline_music_app/music_app/presentation/pages/home_page/widgets/play_next_widget.dart';
 import 'package:flutter_offline_music_app/music_app/presentation/pages/home_page/widgets/play_pause_widget.dart';
 import 'package:flutter_offline_music_app/music_app/presentation/pages/home_page/widgets/play_previous_widget.dart';
 import 'package:flutter_offline_music_app/music_app/presentation/pages/home_page/widgets/shuffle_widget.dart';
+import 'package:flutter_offline_music_app/music_app/presentation/pages/home_page/widgets/slider_widget.dart';
 import '../../../../controllers/audio_controller/audio_cubit.dart';
 import '../../../../core/components/bloc_consumer_widget.dart';
 import '../../../../core/components/custom_widgets/custom_column.dart';
@@ -27,7 +29,7 @@ class AudioControlWidget extends StatelessWidget {
       builder: (context, state) {
         return CustomContainer(
           width: size.width,
-          height: size.height / 5,
+          height: size.height / 3.5,
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
             color: ColorManager.black,
@@ -57,6 +59,8 @@ class AudioControlWidget extends StatelessWidget {
                   LoopWidget(),
                 ],
               ),
+              const SliderWidget(),
+              const AudioDurationWidget()
             ],
           ),
         );

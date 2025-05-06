@@ -44,8 +44,6 @@ class _HomePageState extends State<HomePage> {
         child: CustomContainer(
           width: size.width,
           height: size.height,
-          decoration: const BoxDecoration(
-          ),
           child: CustomColumn(
             children: [
               const AudioControlWidget(),
