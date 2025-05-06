@@ -17,7 +17,7 @@ class SliderWidget extends StatelessWidget {
           activeColor: ColorManager.white,
           inactiveColor: ColorManager.white.withOpacity(0.1),
           thumbColor: ColorManager.white,
-          value: context.read<AudioCubit>().position / 1000,
+          value: (context.read<AudioCubit>().position ~/ 1000).toDouble(),
           min: 0,
           max: context.read<AudioCubit>().currentAudioDuration.inSeconds.toDouble(),
           onChanged: (value){
