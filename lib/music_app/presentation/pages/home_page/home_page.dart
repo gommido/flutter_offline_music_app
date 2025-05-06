@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_offline_music_app/music_app/core/components/custom_widgets/custom_expanded.dart';
 import 'package:flutter_offline_music_app/music_app/core/constants/app_strings.dart';
+import 'package:flutter_offline_music_app/music_app/presentation/pages/home_page/widgets/audio_control_widget.dart';
 import 'package:flutter_offline_music_app/music_app/presentation/pages/home_page/widgets/track_widget.dart';
 
 import '../../../controllers/audio_controller/audio_cubit.dart';
+import '../../../core/components/custom_widgets/custom_column.dart';
 import '../../../core/components/custom_widgets/custom_container.dart';
 import '../../../core/components/custom_widgets/custom_sized_box.dart';
 import '../../../core/components/custom_widgets/custom_text.dart';
@@ -43,12 +46,20 @@ class _HomePageState extends State<HomePage> {
           height: size.height,
           decoration: const BoxDecoration(
           ),
-          child: ListView.separated(
-            itemCount: tracks.length, separatorBuilder: (context, index)=> CustomSizedBox(height: size.height / 100,),
-            itemBuilder: (context, index){
-              final track = tracks[index];
-              return TrackWidget(track: track, index: index);
-            },
+          child: CustomColumn(
+            children: [
+              const AudioControlWidget(),
+              CustomSizedBox(height: size.height / 50,),
+              CustomExpanded(
+                child: ListView.separated(
+                  itemCount: tracks.length, separatorBuilder: (context, index)=> CustomSizedBox(height: size.height / 100,),
+                  itemBuilder: (context, index){
+                    final track = tracks[index];
+                    return TrackWidget(track: track, index: index);
+                  },
+                ),
+              ),
+            ],
           ),
         ),
       ),
