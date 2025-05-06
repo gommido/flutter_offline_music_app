@@ -13,6 +13,7 @@ class AudioCubit extends Cubit<AudioState> {
     _position = 0;
     _isLooping = false;
     _isShuffle = false;
+    _currentAudioDuration = Duration.zero;
   }
 
 
@@ -124,7 +125,7 @@ class AudioCubit extends Cubit<AudioState> {
     });
 
     _player.positionStream.listen((event){
-      _position = event.inSeconds;
+      _position = event.inMilliseconds;
       emit(OnPlayListenerState());
     });
   }

@@ -15,7 +15,7 @@ class RingtoneTitleWidget extends StatelessWidget {
       ),
       child: CustomText(
         data:  name,
-        style: Theme.of(context).textTheme.bodySmall!,
+        style: Theme.of(context).textTheme.bodyMedium!,
       ),
     );
   }

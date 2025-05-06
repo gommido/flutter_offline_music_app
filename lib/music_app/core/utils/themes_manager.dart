@@ -5,7 +5,7 @@ import '../resources/font_manager.dart';
 
 
 
-ThemeData darkTheme(){
+ThemeData appTheme(){
   return ThemeData(
     useMaterial3: true,
     scaffoldBackgroundColor: ColorManager.backgroundColor,
@@ -36,11 +36,6 @@ ThemeData darkTheme(){
     ),
     iconTheme: const IconThemeData(
       color: ColorManager.white,
-    ),
-    iconButtonTheme: IconButtonThemeData(
-      style: ButtonStyle(
-        iconColor: WidgetStateProperty.all(ColorManager.white),
-      ),
     ),
     sliderTheme: const SliderThemeData(
       thumbShape: RoundSliderThumbShape(enabledThumbRadius: 2.0),
